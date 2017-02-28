@@ -6,4 +6,6 @@ ENV PORT=8080
 
 COPY app /
 
-CMD ["/app"]
+ENTRYPOINT ["/app"]
+
+CMD ""
