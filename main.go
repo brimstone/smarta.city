@@ -15,9 +15,11 @@ func main() {
 
 	log.Println("Starting")
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+	http.HandleFunc("/hello", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Fprintln(w, "hello world")
 	})
+
+	http.Handle("/", http.FileServer(http.Dir("static")))
 
 	http.ListenAndServe(port, nil)
 }
